@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>&#12452;&#12531;&#12473;&#12488;&#12540;&#12523; | PLATEAU SDK for Unreal </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="&#12452;&#12531;&#12473;&#12488;&#12540;&#12523; | PLATEAU SDK for Unreal ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="インストール" sourcefile="manual/Installation.md" sourcestartlinenumber="1" sourceendlinenumber="1">インストール</h1>
+
+<h2 id="対応unrealバージョンのインストール" sourcefile="manual/Installation.md" sourcestartlinenumber="2" sourceendlinenumber="2">対応Unrealバージョンのインストール</h2>
+<ul sourcefile="manual/Installation.md" sourcestartlinenumber="3" sourceendlinenumber="5">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="3" sourceendlinenumber="5">PLATEAU SDK for UnrealはUE5での動作を想定しています。<br>UE5がインストールされていない場合は、以下URLからインストールしてください。<ul sourcefile="manual/Installation.md" sourcestartlinenumber="5" sourceendlinenumber="5">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="5" sourceendlinenumber="5"><a href="https://www.unrealengine.com/ja/download" data-raw-source="[Epic Games Launcher をこちらからインストールします](https://www.unrealengine.com/ja/download)" sourcefile="manual/Installation.md" sourcestartlinenumber="5" sourceendlinenumber="5">Epic Games Launcher をこちらからインストールします</a>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="unrealプロジェクトの作成" sourcefile="manual/Installation.md" sourcestartlinenumber="7" sourceendlinenumber="7">Unrealプロジェクトの作成</h2>
+<ul sourcefile="manual/Installation.md" sourcestartlinenumber="8" sourceendlinenumber="11">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="8" sourceendlinenumber="9">先ほどインストールしたバージョンを起動します。
+<img src="../resources/manual/installation/epicGameLauncherLaunchUnrealEngine.png" alt="" sourcefile="manual/Installation.md" sourcestartlinenumber="9" sourceendlinenumber="9"></li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="10" sourceendlinenumber="11">適宜設定を行い<code>作成</code>を押します。
+<img src="../resources/manual/installation/unrealEngineNewProjectCategory.png" alt="" sourcefile="manual/Installation.md" sourcestartlinenumber="11" sourceendlinenumber="11"></li>
+</ul>
+<h2 id="plateau-sdk-for-unreal-の導入" sourcefile="manual/Installation.md" sourcestartlinenumber="13" sourceendlinenumber="13">PLATEAU SDK for Unreal の導入</h2>
+<ul sourcefile="manual/Installation.md" sourcestartlinenumber="14" sourceendlinenumber="19">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="14" sourceendlinenumber="14">提供されているPLATEAU SDK for Unrealをダウンロードします。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="15" sourceendlinenumber="15">作成したプロジェクトのフォルダに<code>Plugins</code>という名前のフォルダを作成し、先程ダウンロードしたSDKを解凍しコピーします。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="16" sourceendlinenumber="16"><code>Plugins/PLATEAU-SDK-for-Unreal/PLATEAU-SDK-for-Unreal.uproject</code>が存在することを確認します。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="17" sourceendlinenumber="17">プロジェクトを開きます。既にプロジェクトを開いている場合は一度閉じてから再度プロジェクトを開いてください。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="18" sourceendlinenumber="19">プロジェクトを開く際に以下の画面が表示されるので<code>はい</code>を押して完了です。
+<img src="../resources/manual/installation/pluginBuild.png" alt="" sourcefile="manual/Installation.md" sourcestartlinenumber="19" sourceendlinenumber="19"></li>
+</ul>
+<h1 id="エディタ設定の変更推奨" sourcefile="manual/Installation.md" sourcestartlinenumber="21" sourceendlinenumber="21">エディタ設定の変更(推奨)</h1>
+<h2 id="自動再インポート対象の除外" sourcefile="manual/Installation.md" sourcestartlinenumber="22" sourceendlinenumber="22">自動再インポート対象の除外</h2>
+<ol sourcefile="manual/Installation.md" sourcestartlinenumber="23" sourceendlinenumber="26">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="23" sourceendlinenumber="23"><code>エディタの環境設定</code>から<code>ロード＆保存中</code>→<code>監査するディレクトリ</code>→<code>インデックス[0]</code>を選択します。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="24" sourceendlinenumber="26">除外対象として<code>PLATEAU/Datasets/*</code>を追加します。
+<img src="../resources/manual/installation/excludeFromReimportTarget.png" alt="" sourcefile="manual/Installation.md" sourcestartlinenumber="25" sourceendlinenumber="25">
+この操作を行わない場合、取得されたgmlファイル等の生データを手動でインポート対象から除外する必要があります。</li>
+</ol>
+<h2 id="距離スケーリング済みのカメラ速度を使用" sourcefile="manual/Installation.md" sourcestartlinenumber="28" sourceendlinenumber="28">距離スケーリング済みのカメラ速度を使用</h2>
+<ol sourcefile="manual/Installation.md" sourcestartlinenumber="29" sourceendlinenumber="32">
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="29" sourceendlinenumber="29"><code>エディタの環境設定</code>から<code>距離スケーリング</code>で検索します。</li>
+<li sourcefile="manual/Installation.md" sourcestartlinenumber="30" sourceendlinenumber="32"><code>距離スケーリング済みのカメラ速度を使用</code>にチェックを入れます。
+<img src="../resources/manual/installation/distanceScaled.png" alt="" sourcefile="manual/Installation.md" sourcestartlinenumber="31" sourceendlinenumber="31">
+この操作を行うことで広域なマップでの操作性が向上します。</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Synesthesias/PLATEAU-SDK-for-Unreal/blob/feature/citymodel_exporter/Documentation/manual/Installation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            PLATEAU SDK for Unreal
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
