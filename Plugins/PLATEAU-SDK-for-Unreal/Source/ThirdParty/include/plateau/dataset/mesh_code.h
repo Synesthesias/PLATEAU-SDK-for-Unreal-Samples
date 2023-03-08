@@ -6,20 +6,20 @@
 #include <libplateau_api.h>
 #include "plateau/geometry/geo_coordinate.h"
 
-namespace plateau::udx {
+namespace plateau::dataset {
     class LIBPLATEAU_EXPORT MeshCode {
     public:
         explicit MeshCode(const std::string& code);
         MeshCode() = default;
 
-        static int getLevel(const std::string& code);
         std::string get() const;
         geometry::Extent getExtent() const;
         static MeshCode getThirdMesh(const geometry::GeoCoordinate& coordinate);
-        static std::shared_ptr<std::vector<MeshCode>> getThirdMeshes(const geometry::Extent& extent);
         static void getThirdMeshes(const geometry::Extent& extent, std::vector<MeshCode>& mesh_codes);
+        static std::shared_ptr<std::vector<MeshCode>> getThirdMeshes(const geometry::Extent& extent);
         bool isWithin(const MeshCode& other) const;
         MeshCode asSecond() const;
+        bool isValid() const;
 
         bool operator==(const MeshCode& other) const;
 
@@ -35,6 +35,7 @@ namespace plateau::udx {
         int third_row_;
         int third_col_;
         int level_;
+        bool is_valid_;
 
         static void nextRow(MeshCode& mesh_code);
         static void nextCol(MeshCode& mesh_code);

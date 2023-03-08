@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "PLATEAUGeometry.h"
 #include "PLATEAUImportSettings.h"
+#include <plateau/network/client.h>
 
 #include "PLATEAUCityModelLoader.generated.h"
 
@@ -74,6 +75,11 @@ public:
 
     UPROPERTY(EditAnywhere, Category = "PLATEAU")
         FPLATEAUCityModelLoadStatus Status;
+
+    UPROPERTY(EditAnywhere, Category = "PLATEAU")
+        bool bImportFromServer;
+
+    std::shared_ptr<plateau::network::Client> ClientPtr;
 
     UFUNCTION(BlueprintCallable, Category = "PLATEAU")
         void LoadAsync();

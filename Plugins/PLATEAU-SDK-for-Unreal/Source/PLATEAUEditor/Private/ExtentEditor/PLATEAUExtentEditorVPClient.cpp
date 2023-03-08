@@ -3,7 +3,7 @@
 #include "PLATEAUExtentEditorVPClient.h"
 #include "PLATEAUExtentEditor.h"
 
-#include <plateau/udx/udx_file_collection.h>
+#include <plateau/dataset/i_dataset_accessor.h>
 
 #include "PLATEAUExtentGizmo.h"
 #include "PLATEAUMeshCodeGizmo.h"
@@ -55,8 +55,8 @@ FPLATEAUExtentEditorViewportClient::~FPLATEAUExtentEditorViewportClient() {
     UAssetViewerSettings::Get()->OnAssetViewerSettingsChanged().RemoveAll(this);
 }
 
-void FPLATEAUExtentEditorViewportClient::Initialize(std::shared_ptr<plateau::udx::UdxFileCollection> InFileCollection) {
-    FileCollection = InFileCollection;
+void FPLATEAUExtentEditorViewportClient::Initialize(std::shared_ptr<plateau::dataset::IDatasetAccessor> InDatasetAccessor) {
+    DatasetAccessor = InDatasetAccessor;
 
     InitCamera();
 
@@ -66,7 +66,8 @@ void FPLATEAUExtentEditorViewportClient::Initialize(std::shared_ptr<plateau::udx
         ExtentGizmo->SetExtent(ExtentEditor->GetExtent().GetValue(), GeoReference);
 
     MeshCodeGizmos.Reset();
-    for (const auto& MeshCode : FileCollection->getMeshCodes()) {
+    const auto& MeshCodes = DatasetAccessor->getMeshCodes();
+    for (const auto& MeshCode : MeshCodes) {
         MeshCodeGizmos.AddDefaulted();
         MeshCodeGizmos.Last().Init(MeshCode, GeoReference.GetData());
     }
@@ -93,6 +94,9 @@ void FPLATEAUExtentEditorViewportClient::InitCamera() {
 }
 
 void FPLATEAUExtentEditorViewportClient::Tick(float DeltaSeconds) {
+    if (DatasetAccessor == nullptr)
+        return;
+
     const auto ExtentMin = ExtentGizmo->GetMin();
     const auto ExtentMax = ExtentGizmo->GetMax();
     for (auto& Gizmo : MeshCodeGizmos) {
@@ -144,7 +148,7 @@ void FPLATEAUExtentEditorViewportClient::Tick(float DeltaSeconds) {
     FPLATEAUExtent Extent(plateau::geometry::Extent(MinCoordinate, MaxCoordinate));
 
     Basemap->UpdateAsync(Extent);
-    FeatureInfoDisplay->UpdateAsync(Extent, *FileCollection, GetViewTransform().GetLocation().Z < 2000, GetViewTransform().GetLocation().Z < 1000);
+    FeatureInfoDisplay->UpdateAsync(Extent, *DatasetAccessor, GetViewTransform().GetLocation().Z < 4000, GetViewTransform().GetLocation().Z < 2000);
 
     // 何も選択されていない場合は既定の動作(視点移動等)
     if (SelectedHandleIndex == -1) {
@@ -176,11 +180,12 @@ void FPLATEAUExtentEditorViewportClient::Draw(const FSceneView* View, FPrimitive
     constexpr FColor SelectedColor(225, 225, 110);
     constexpr FColor UnselectedColor(255, 127, 80);
 
+    double CameraDistance = GetViewTransform().GetLocation().Z;
     for (int i = 0; i < 5; ++i) {
         const auto HitProxy = new HPLATEAUExtentHandleProxy(i);
         PDI->SetHitProxy(HitProxy);
         const FColor Color = i == SelectedHandleIndex ? SelectedColor : UnselectedColor;
-        ExtentGizmo->DrawHandle(i, Color, View, PDI);
+        ExtentGizmo->DrawHandle(i, Color, View, PDI, CameraDistance);
         PDI->SetHitProxy(nullptr);
     }
     ExtentGizmo->DrawExtent(View, PDI);

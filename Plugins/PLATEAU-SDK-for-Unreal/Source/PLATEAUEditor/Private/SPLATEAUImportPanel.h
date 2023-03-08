@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PLATEAUGeometry.h"
 #include "Widgets/SCompoundWidget.h"
 
-namespace plateau::udx {
+namespace plateau::dataset {
     enum class PredefinedCityModelPackage : uint32;
-    class UdxFileCollection;
+    class IDatasetAccessor;
 }
 
 /**
@@ -31,13 +32,18 @@ private:
     int PrefectureID = 1;
     int MunicipalityID = 1;
 
+    // 選択範囲の中心
+    FVector3d ExtentCenter;
+    // UI上で設定されるオフセット値
+    FVector3d ReferencePoint;
+
     TWeakPtr<SWindow> OwnerWindow;
     TSharedPtr<class FPLATEAUEditorStyle> Style;
 
     TSharedPtr<IDetailsView> ImportSettingsView = nullptr;
     TSharedPtr<class SPLATEAUServerDatasetSelectPanel> ServerPanelRef = nullptr;
 
-    std::shared_ptr<plateau::udx::UdxFileCollection> FileCollection;
+    std::shared_ptr<plateau::dataset::IDatasetAccessor> DatasetAccessor;
 
     TSharedRef<SVerticalBox> CreateSourcePathSelectPanel();
     TSharedRef<SHorizontalBox> CreateFileSourceSelectButton();

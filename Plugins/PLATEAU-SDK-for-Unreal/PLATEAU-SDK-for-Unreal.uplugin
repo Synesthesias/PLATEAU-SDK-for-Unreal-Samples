@@ -18,12 +18,14 @@
 		{
 			"Name": "PLATEAURuntime",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+            "WhitelistPlatforms" : ["Win64", "Win32"]
 		},
 		{
 			"Name": "PLATEAUEditor",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms" : ["Win64", "Win32"]
 		}
 	]
 }
