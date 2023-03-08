@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AdvancedPreviewSceneModule.h"
 #include "PLATEAUGeometry.h"
+#include <plateau/network/client.h>
 
 class FEditorViewportClient;
 class SDockTab;
@@ -36,10 +37,23 @@ public:
     void SetExtent(const FPLATEAUExtent& InExtent);
     void ResetExtent();
 
+    const bool IsImportFromServer() const;
+    void SetImportFromServer(bool InBool);
+
+    std::shared_ptr<plateau::network::Client> GetClientPtr() const;
+    void SetClientPtr(const std::shared_ptr<plateau::network::Client>& InClientPtr);
+
+    const std::string GetServerDatasetID() const;
+    void SetServerDatasetID(const std::string InID);
+
 private:
     FString SourcePath;
     FPLATEAUGeoReference GeoReference;
     TOptional<FPLATEAUExtent> Extent;
+
+    bool bImportFromServer = false;
+    std::shared_ptr<plateau::network::Client> ClientPtr;
+    std::string ServerDatasetID;
 
     FAdvancedPreviewSceneModule::FOnPreviewSceneChanged OnPreviewSceneChangedDelegate;
     TWeakObjectPtr<class APLATEAUCityModelLoader> Loader;

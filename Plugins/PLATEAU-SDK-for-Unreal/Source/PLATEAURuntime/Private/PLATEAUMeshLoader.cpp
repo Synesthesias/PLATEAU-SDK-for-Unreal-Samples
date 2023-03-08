@@ -1,7 +1,6 @@
 #include "PLATEAUMeshLoader.h"
 #include "PLATEAUTextureLoader.h"
 
-#include "plateau/udx/udx_file_collection.h"
 #include "plateau/polygon_mesh/mesh_extractor.h"
 #include "citygml/citygml.h"
 
@@ -190,6 +189,7 @@ void FPLATEAUMeshLoader::LoadModel(AActor* ModelActor, USceneComponent* ParentCo
         StaticMeshes.Reset();
     }
 
+    // TODO: フィルタリング機能に委譲
     TMap<int, TSet<FString>> NameMap;
     for (int i = 0; i < InModel->getRootNodeCount(); i++) {
         const auto& RootNode = InModel->getRootNodeAt(i);
